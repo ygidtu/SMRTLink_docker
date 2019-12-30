@@ -17,7 +17,7 @@ RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
 
 COPY sources.list /etc/apt/sources.list
 
-RUN apt update && apt install -y unzip rsync locales curl net-tools build-essential python3
+RUN apt update && apt install -y unzip rsync locales curl net-tools
 
 # Prepare locales
 RUN echo "LC_ALL=en_US.UTF-8" >> /etc/environment
@@ -36,6 +36,8 @@ RUN unzip smrtlink_8.0.zip
 RUN ulimit -n 8192
 RUN ./smrtlink_8.0.*.run --install --rootdir $SMRT_ROOT --batch --skip-system-check --smrtlink-dnsname 0.0.0.0 --smrtlink-mail-host 0.0.0.0
 
+RUN rm smrtlink_8.0.zip smrtlink_8.0.*.run
+
 COPY main.py ./
 
-ENTRYPOINT ["python3", "main.py"]
+ENTRYPOINT ["/home/smrtanalysis/smrtlink/smrtcmds/bin/python3", "main.py"]

@@ -25,8 +25,8 @@ def main(args=argv[1:]):
                 print(i)
     elif args[0] == "--version" or args[0] == "-v":
         for i in os.listdir("./"):
-            if i.endswith(".run"):
-                print(i)
+            if i.endswith(".run.md5"):
+                print(i.replace(".run.md5", ""))
     else:
         exec = os.path.join(root_dir, args[0])
 
