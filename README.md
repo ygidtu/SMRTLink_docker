@@ -20,6 +20,15 @@ I cannot solve the localhost binding issue, then the GUI usage is **not availabl
 
 ## Install
 
+### DockerHub
+
+[My DockerHub](https://hub.docker.com/repository/docker/ygidtu/smrtlink)
+ 
+```bash
+docker push ygidtu/smrtlink:8.0.0.80529
+```
+
+### Customize with your own smrtlink source file
 You could just rename this image to whatever you like
 ```bash
 docker build -t smrt8 .
